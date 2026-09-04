@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-09-04T22:00:49Z",
+  "status": "ok",
+  "log_url": "https://burnledger.io",
+  "entries": 1,
+  "chain_head": "b7af2dad95df3e09a8c36489329a3639015fd469f92d094e8dbe139ebaf591c9",
+  "anchor": "stamped",
+  "runner_environment": "github-hosted",
+  "run_url": "https://github.com/fdflabs/burnledger/actions/runs/33923591953",
+  "witness_exit": 0
+}

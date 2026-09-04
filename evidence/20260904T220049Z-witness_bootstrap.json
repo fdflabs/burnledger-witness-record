@@ -1,0 +1,35 @@
+{
+  "schema": "burnledger.witness.evidence/v1",
+  "reason": "witness_bootstrap",
+  "captured_at": "2026-09-04T22:00:49.897557971Z",
+  "log_url": "https://burnledger.io",
+  "summary": "This witness began observing the log at tree size 580. Everything it can prove dates from here: it has nothing to compare an earlier state against.",
+  "self_authenticating": true,
+  "pinned_keys": [
+    {
+      "key_id": "dp_k_aa84553d210663d8b16dbc628cfd616db7ff2fd27f0a814fee935857edf067ff",
+      "public_key": "aba5f9391a3e5a09ba4267723a518805c161f6948a69bd41799509732d3cc3c3",
+      "key_status": "active"
+    }
+  ],
+  "heads": [
+    {
+      "role": "served",
+      "tree_size": 580,
+      "root_hash": "f9be75469dc8e4f51c960bd7689d7e3efb993b783e815174f0da042b1e0a6dad",
+      "timestamp": "2026-09-04T13:48:19Z",
+      "signature": "6c5ad1829bbaddd5fce296c9fe8362ece3c84841c2c0ac2c0786f25b2dcbc3ad586fc932f301004c8f603add5b1b06a8c4bd56b987822df68186347149c33409",
+      "signed_payload": "{\"payload_type\":\"burnledger.sth.v3\",\"root_hash\":\"f9be75469dc8e4f51c960bd7689d7e3efb993b783e815174f0da042b1e0a6dad\",\"timestamp\":\"2026-09-04T13:48:19Z\",\"tree_size\":580}",
+      "signed_payload_hex": "7b227061796c6f61645f74797065223a226275726e6c65646765722e7374682e7633222c22726f6f745f68617368223a2266396265373534363964633865346635316339363062643736383964376533656662393933623738336538313531373466306461303432623165306136646164222c2274696d657374616d70223a22323032362d30392d30345431333a34383a31395a222c22747265655f73697a65223a3538307d",
+      "signature_verifies": true,
+      "verified_by_key_id": "dp_k_aa84553d210663d8b16dbc628cfd616db7ff2fd27f0a814fee935857edf067ff"
+    }
+  ],
+  "how_to_verify": [
+    "Each head below carries signed_payload: the exact bytes the log signed, as RFC 8785 canonical JSON. No BurnLedger code is needed to rebuild it.",
+    "Verify with any Ed25519 implementation: ed25519_verify(public_key=pinned_keys[i].public_key, message=signed_payload, signature=head.signature). All three fields are hex except signed_payload, which is the literal text.",
+    "Worked example (python3, package 'cryptography', run against THIS file): deploy/WITNESS-THIRD-PARTY.md, section 'Verifying an evidence record yourself'. It depends on nothing from BurnLedger.",
+    "Two heads with the SAME tree_size and DIFFERENT root_hash, both verifying, are proof of equivocation: an append-only log cannot have had two states at one size. This holds forever and does not require trusting the witness, its host, or the log operator.",
+    "A head whose signature_verifies is false proves nothing about the operator on its own — it records only what this witness was served."
+  ]
+}
