@@ -55,6 +55,27 @@ Step 4 is the one that matters. Steps 1 to 3 prove the record is internally
 consistent; step 4 proves it is not backdated, and it depends on nobody's
 honesty — including ours.
 
+## Is the copy you are reading current?
+
+This repository is a mirror. If the push that updates it stops working, it
+freezes at whatever it last received and looks exactly like a witness that had
+nothing new to say. So the record states its own deadline rather than leaving
+you to guess our schedule:
+
+```
+jq -r '.observed_at, .stale_after' latest.json
+```
+
+`stale_after` is `observed_at` plus three of the intervals this record is
+written on (`interval_seconds`), which tolerates two missed runs. If the
+current time is past it, **this copy is stale** — either the witness stopped or
+the mirror did — and you should not read the absence of recent entries as a
+statement about the log. That is one comparison against your own clock, with
+nothing of ours to check it against.
+
+A stale copy is not evidence of bad faith. It is evidence that this record is
+currently telling you nothing.
+
 ## Files
 
 | Path | What |
@@ -63,7 +84,8 @@ honesty — including ours.
 | `anchors/NNNNNN.json` | a byte-for-byte copy of entry NNNNNN, the thing stamped |
 | `anchors/NNNNNN.json.ots` | its OpenTimestamps proof |
 | `evidence/` | records written when a check failed, and the bootstrap anchor |
-| `latest.json` | the most recent run's status — liveness, not evidence |
+| `latest.json` | the most recent run's status, and `stale_after` — liveness, not evidence |
+| `README.md` | this file; written from the source repository on every run |
 
 A gap in the sequence, or a run that stopped, means the witness stopped — not
 that the log misbehaved. Absence of an entry is not evidence of anything.
