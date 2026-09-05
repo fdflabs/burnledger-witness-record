@@ -29,6 +29,18 @@ gives you is narrower and still worth having:
   here. A signed head at a tree size where this record shows a different root is
   evidence of equivocation, and it is evidence that verifies without our
   cooperation.
+- **A dated digest of the status-statement record.** Every entry also carries
+  `status_issuances`: `{as_of, count, chain_head}` as published by
+  `GET https://burnledger.io/v1/log/status-issuances/head` at the time of the
+  observation — a hash chain over the issuer's append-only record of every
+  signed certificate status statement. Unlike the tree head it is not signed,
+  so what the entry attests is that BurnLedger *published* this digest on a
+  date committed to Bitcoin. A table produced later either reproduces it or it
+  does not. It carries no inclusion proof; `null` means the run could not read
+  it. The rule for recomputing it from a table dump is in the BurnLedger
+  documentation (`docs/transparency-log.md`). Entries are appended when the
+  tree head advances or this digest moves, so an entry may repeat the previous
+  entry's tree head.
 
 **What it does not give you.** It cannot detect a different history served
 privately to one party who never checks this record, and it cannot detect
