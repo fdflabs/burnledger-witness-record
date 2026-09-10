@@ -1,18 +1,18 @@
 {
-  "observed_at": "2026-09-10T04:51:42Z",
+  "observed_at": "2026-09-10T11:28:22Z",
   "status": "ok",
   "log_url": "https://burnledger.io",
-  "entries": 12,
-  "chain_head": "63dcf971f67f8c486eb4d33566513fdb3dca67f2bf8199b4d4442d049b12eae2",
-  "anchor": "none",
+  "entries": 13,
+  "chain_head": "0ce4c1f9443a2aacc788c040d5937447dfbd0db8895b40536e264fc16b1ebefe",
+  "anchor": "stamped",
   "status_issuances": {
-    "as_of": "2026-09-10T04:51:38.295045Z",
-    "chain_head": "920b1b9d815bf57c16e48cde929920798d48eb0c02b8781e23e3bc104176e881",
-    "count": 256
+    "as_of": "2026-09-10T11:28:17.906373Z",
+    "chain_head": "f856680e314dd5979151265734fa8ef33aa916682c6537b573dee653bd249733",
+    "count": 275
   },
   "runner_environment": "github-hosted",
-  "run_url": "https://github.com/fdflabs/burnledger/actions/runs/34438750916",
+  "run_url": "https://github.com/fdflabs/burnledger/actions/runs/34471397183",
   "witness_exit": 0,
   "interval_seconds": 21600,
-  "stale_after": "2026-09-10T22:51:42Z"
+  "stale_after": "2026-09-11T05:28:22Z"
 }
