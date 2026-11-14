@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-11-14T18:14:01Z",
+  "observed_at": "2026-11-14T22:31:50Z",
   "status": "alarm",
   "log_url": "https://burnledger.io",
   "entries": 81,
@@ -7,8 +7,8 @@
   "anchor": "none",
   "status_issuances": null,
   "runner_environment": "github-hosted",
-  "run_url": "https://github.com/fdflabs/burnledger/actions/runs/43625362742",
+  "run_url": "https://github.com/fdflabs/burnledger/actions/runs/43648495337",
   "witness_exit": 1,
   "interval_seconds": 21600,
-  "stale_after": "2026-11-15T12:14:01Z"
+  "stale_after": "2026-11-15T16:31:50Z"
 }
